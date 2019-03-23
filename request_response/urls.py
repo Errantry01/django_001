@@ -13,5 +13,6 @@ urlpatterns = [
     url(r'^get_form_data/$', views.get_form_data),
     url(r'^get_json/$', views.get_json),
     url(r'^get_user/$', views.get_user),
+    url(r'^response_demo/$', views.response_demo),
 
 ]
