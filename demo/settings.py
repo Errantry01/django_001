@@ -26,6 +26,7 @@ SECRET_KEY = 'tpl&ehuze0=^lbr5qwr_85++90dw&@v_%8yz2lw7mdp-(7!f04'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 # 默认开启debug模式,将来项目上线的时候需要改为false
+# 如果将来项目部署上线后,django服务器不再提供对静态文件访问支持,因为Django服务器是动态业务逻辑
 DEBUG = True
 
 ALLOWED_HOSTS = []
@@ -129,3 +130,9 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 # 静态文件访问的路由前缀
 STATIC_URL = '/static/'
+
+# 静态文件加载存储目录
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static_files'),
+    os.path.join(BASE_DIR, 'static_files/test'),
+]

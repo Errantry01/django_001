@@ -21,7 +21,7 @@ from users import views
 urlpatterns = [
     url(r'^admin/', admin.site.urls), # 后台管理站点路由
 
-    # url(r'^', include('users.urls'))
+    url(r'^', include('users.urls')),
 
     # url(r'^users/index/$', views.index)
 

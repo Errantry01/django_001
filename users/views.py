@@ -18,3 +18,9 @@ def index(request):
     """
 
     return HttpResponse("hello world")
+
+def say(request):
+    return  HttpResponse("say")
+
+def say_hello(request):
+    return HttpResponse("say hello")
