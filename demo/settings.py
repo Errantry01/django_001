@@ -10,9 +10,10 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/1.11/ref/settings/
 """
 
-import os
+import os, sys
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
+# 项目路由
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
@@ -20,9 +21,11 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/1.11/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
+# django自带的密钥
 SECRET_KEY = 'tpl&ehuze0=^lbr5qwr_85++90dw&@v_%8yz2lw7mdp-(7!f04'
 
 # SECURITY WARNING: don't run with debug turned on in production!
+# 默认开启debug模式,将来项目上线的时候需要改为false
 DEBUG = True
 
 ALLOWED_HOSTS = []
@@ -42,6 +45,7 @@ INSTALLED_APPS = [
     'users.apps.UsersConfig', # 注册子应用
 ]
 
+# 中间件
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -54,6 +58,7 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'demo.urls'
 
+# 模板文件
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
@@ -70,9 +75,10 @@ TEMPLATES = [
     },
 ]
 
+# 部署上线沟工程的启动入口
 WSGI_APPLICATION = 'demo.wsgi.application'
 
-
+# 数据库配置项
 # Database
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
 
@@ -87,6 +93,7 @@ DATABASES = {
 # Password validation
 # https://docs.djangoproject.com/en/1.11/ref/settings/#auth-password-validators
 
+# 密码配置项
 AUTH_PASSWORD_VALIDATORS = [
     {
         'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
@@ -105,9 +112,10 @@ AUTH_PASSWORD_VALIDATORS = [
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.11/topics/i18n/
-
+# 工程语言,默认英文,可以修改为简体中文
 LANGUAGE_CODE = 'en-us'
 
+# 时区,默认世界时间,可以修改为亚洲/上海时区
 TIME_ZONE = 'UTC'
 
 USE_I18N = True
@@ -119,5 +127,5 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
-
+# 静态文件访问的路由前缀
 STATIC_URL = '/static/'
