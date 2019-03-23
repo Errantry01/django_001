@@ -5,7 +5,7 @@ __pycache__/
 
 .idea/*
 logs/*.log
-migrations\
+users/migrations/*
 
 # C extensions
 *.so
