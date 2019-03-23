@@ -25,6 +25,8 @@ urlpatterns = [
 
     # url(r'^users/index/$', views.index)
 
-    url(r'^users/', include('users.urls'))
+    url(r'^users/', include('users.urls')),
+
+    url(r'^', include('request_response.urls')),
 ]
 
