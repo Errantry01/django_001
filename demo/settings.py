@@ -29,6 +29,7 @@ ALLOWED_HOSTS = []
 
 
 # Application definition
+# 安装或注册Django自带子应用 及第三方或自己创建的子应用
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -37,6 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    'users.apps.UsersConfig', # 注册子应用
 ]
 
 MIDDLEWARE = [
