@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+from django.http import HttpResponse, JsonResponse, HttpResponseNotFound
 import json
 
 
@@ -47,7 +47,22 @@ def get_user(request):
     return HttpResponse('get_user')
 
 
+# GET /response_demo/
 def response_demo(request):
-    """演示响应对象"""
-    return HttpResponse(content="hello")
+    """演示响应对象的基本操作"""
+    # return HttpResponse(content="hello", content_type='text/html',status=200)
+    # return HttpResponse(content="hello")
+
+    response = HttpResponse(content='hello world')
+    response['itcast'] = 'hello' # 自定义响应头
+    return response
+
+
+def json_response_demo(request):
+    """"""
+    data = [{'name':'zs', 'age':12}, 'haha']
+    dict = {'dict':data}
+
+    return JsonResponse(dict)
+
 

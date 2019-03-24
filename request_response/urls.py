@@ -14,5 +14,6 @@ urlpatterns = [
     url(r'^get_json/$', views.get_json),
     url(r'^get_user/$', views.get_user),
     url(r'^response_demo/$', views.response_demo),
+    url(r'^json_response_demo/$', views.json_response_demo),
 
 ]
