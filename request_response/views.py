@@ -1,5 +1,6 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect, reverse
 from django.http import HttpResponse, JsonResponse, HttpResponseNotFound
+
 import json
 
 
@@ -65,4 +66,13 @@ def json_response_demo(request):
 
     return JsonResponse(dict)
 
+
+def redirect_demo(request):
+    """重定向"""
+    # print(reverse('json_response_demo')) # 没有设置命名空间爱时,可以用路由别名进行反向解析
+    # 如果设置了命名空间,反向解析时  写法:(空间
+    print(reverse('request:json_response_demo'))
+    # return redirect('/users/index') # 在路由最前面加/,代表从根路由重定向
+
+    return HttpResponse('OK')
 
