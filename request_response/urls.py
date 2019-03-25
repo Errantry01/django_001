@@ -16,5 +16,7 @@ urlpatterns = [
     url(r'^response_demo/$', views.response_demo),
     url(r'^json_response_demo/$', views.json_response_demo, name='json_response_demo'), # name:给路由起别名
     url(r'^redirect_demo/$', views.redirect_demo),
+    url(r'^cookie_demo/$', views.cookie_demo),
+    url(r'^session_demo/$', views.session_demo),
 
 ]

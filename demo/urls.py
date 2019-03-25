@@ -28,5 +28,7 @@ urlpatterns = [
     url(r'^users/', include('users.urls')),
 
     url(r'^', include('request_response.urls', namespace='request')),
+
+    url(r'^', include('classview.urls'))
 ]
 

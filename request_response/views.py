@@ -76,3 +76,26 @@ def redirect_demo(request):
 
     return HttpResponse('OK')
 
+
+def cookie_demo(request):
+    """演示cookie操作"""
+
+    response = HttpResponse('OK')
+    response.set_cookie('name','zhangsan', max_age=3600)  # 设置cookie
+    name = request.COOKIES.get('name')
+    print(name)
+
+    return response
+
+
+def session_demo(request):
+    """演示session读写操作"""
+    request.session['name'] = 'lisi'  # 设置session
+    request.session['age'] = 20
+
+
+    # 县通过请求对象读取到cookie中的session_id,然后通过session_id读取redis中的session中的记录,再通过key获取value
+    print(request.session.get('name')) # 读取session
+    print(request.session.get('age'))
+    return HttpResponse('session')
+
