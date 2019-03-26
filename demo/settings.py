@@ -44,6 +44,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'users.apps.UsersConfig', # 注册子应用
+    # 子应用中定义了模型需要迁移时，必须注册子应用，有用到模板也要注册子应用
+    'booktest.apps.BooktestConfig', # ORM演示
 ]
 
 # 中间件
@@ -120,11 +122,13 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/1.11/topics/i18n/
 # 工程语言,默认英文,可以修改为简体中文
-LANGUAGE_CODE = 'en-us'
+# LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'zh-hans'
+
 
 # 时区,默认世界时间,可以修改为亚洲/上海时区
-TIME_ZONE = 'UTC'
-
+# TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Shanghai'
 USE_I18N = True
 
 USE_L10N = True
