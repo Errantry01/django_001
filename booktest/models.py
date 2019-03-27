@@ -11,15 +11,24 @@ class BookInfo(models.Model):
     bread = models.IntegerField(default=0, verbose_name='阅读量')
     bcomment = models.IntegerField(default=0, verbose_name='评论量')
     is_delete = models.BooleanField(default=0, verbose_name='逻辑删除')
+    image = models.ImageField(upload_to='booktest', verbose_name='图片', null=True)
 
     class Meta:
         db_table = 'tb_books'  # 指明数据库表名
         verbose_name = '图书'  # 在admin站点显示的名称
         verbose_name_plural = verbose_name  # 显示的复数名称
 
+
+
     def __str__(self):
         """定义每个数据对象的显示信息"""
         return self.btitle
+
+    def bpub_date_format(self):
+        return self.bpub_date.strftime('%Y年%m月%d日')
+
+    bpub_date_format.short_description = '发布日期'
+    bpub_date_format.admin_order_field = 'bpub_date'
 
 
 #定义英雄模型类HeroInfo
@@ -41,3 +50,9 @@ class HeroInfo(models.Model):
 
     def __str__(self):
         return self.hname
+
+    def read(self):
+        return self.hbook.bread
+
+    read.short_description = '阅读量'
+    read.admin_order_field = 'hbook__bread'

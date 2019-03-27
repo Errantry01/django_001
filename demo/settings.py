@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'users.apps.UsersConfig', # 注册子应用
     # 子应用中定义了模型需要迁移时，必须注册子应用，有用到模板也要注册子应用
     'booktest.apps.BooktestConfig', # ORM演示
+
 ]
 
 # 中间件
@@ -57,6 +58,9 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+
+    'rest_framework',
+
     'users.middleware.my_middleware',
     'users.middleware.my_middleware2'
 ]
@@ -146,6 +150,8 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static_files'),
     os.path.join(BASE_DIR, 'static_files/test'),
 ]
+
+MEDIA_ROOT=os.path.join(BASE_DIR,"static_files/media")
 
 
 CACHES = {
