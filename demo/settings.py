@@ -43,9 +43,12 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
+    'rest_framework', # DRF
+
     'users.apps.UsersConfig', # 注册子应用
     # 子应用中定义了模型需要迁移时，必须注册子应用，有用到模板也要注册子应用
     'booktest.apps.BooktestConfig', # ORM演示
+
 
 ]
 
@@ -59,10 +62,10 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 
-    'rest_framework',
 
     'users.middleware.my_middleware',
-    'users.middleware.my_middleware2'
+    'users.middleware.my_middleware2',
+
 ]
 
 ROOT_URLCONF = 'demo.urls'
